@@ -1,0 +1,8 @@
+# 启用 dsh skill 能力（默认 disabled），并把 xingliu-brain 的 config/skills 加入扫描根
+- id: skill-filesystem
+  disabled: false
+  config:
+    customSkillDirs:
+      - /Users/a1-6/Documents/xingliu-brain/.agents/skills
+- id: tool-skill
+  disabled: false

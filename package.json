@@ -1,0 +1,93 @@
+{
+  "name": "xingliu-harness",
+  "version": "0.1.0",
+  "description": "xingliu 一人公司 IM harness — 基于 dsh-passwords 二开，集成 xingliu-plus-uniapp Ruoyi 认证与对话存储",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "xingliu-harness": "dist/cli.js"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./client": "./dist/client.js",
+    "./package.json": "./package.json"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.yml"
+    },
+    "client": {
+      "platform": "web"
+    }
+  },
+  "license": "GPL-3.0-only",
+  "engines": {
+    "node": ">=22.5"
+  },
+  "keywords": [
+    "deepseek",
+    "harness",
+    "dsh",
+    "xingliu",
+    "gateway",
+    "auth",
+    "login",
+    "im"
+  ],
+  "files": [
+    "dist/",
+    "scripts/",
+    "docker/",
+    "src/",
+    "tsconfig.json",
+    "cordis.yml",
+    "README.md",
+    "LICENSE",
+    ".env.example"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xingliu228/xingliu-harness.git"
+  },
+  "homepage": "https://github.com/xingliu228/xingliu-harness",
+  "bugs": {
+    "url": "https://github.com/xingliu228/xingliu-harness/issues"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json && node scripts/build-client.mjs",
+    "build:client": "node scripts/build-client.mjs",
+    "start": "node dist/cli.js serve-gateway",
+    "start:gateway": "node dist/cli.js serve-gateway",
+    "test": "node --import tsx --test \"test/**/*.test.ts\""
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "jsonwebtoken": "^9.0.2",
+    "ws": "^8.21.0"
+  },
+  "devDependencies": {
+    "@deepseek-ai/cordis": "^4.0.1",
+    "@deepseek-ai/dsh": "0.1.1-rc.2",
+    "@deepseek-ai/dsh-client-locale": "0.1.1-rc.2",
+    "@deepseek-ai/dsh-client-runtime": "0.1.1-rc.2",
+    "@deepseek-ai/dsh-host-webserver": "0.1.1-rc.2",
+    "@types/express": "^4.17.21",
+    "@types/jsonwebtoken": "^9.0.7",
+    "@types/node": "^22.0.0",
+    "@types/react": "~18.3.1",
+    "@types/react-dom": "~18.3.0",
+    "@types/react-test-renderer": "18.3.1",
+    "esbuild": "^0.25.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-test-renderer": "18.3.1",
+    "tsx": "^4.19.0",
+    "typescript": "^5.5.4"
+  }
+}
